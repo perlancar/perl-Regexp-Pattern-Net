@@ -18,6 +18,20 @@ $RE{ipv4} = {
     ],
 };
 
+$RE{port} = {
+    summary => 'Match a port number (1-65535)',
+    pat => qr/(?:(?^:[+]?0*[1-9])|(?^:[+]?0*[1-9]\d)|(?^:[+]?0*[1-9]\d{2})|(?^:[+]?0*[1-9]\d{3})|(?^:[+]?0*[1-5]\d{4})|(?^:[+]?0*6[0-4]\d{3})|(?^:[+]?0*65[0-4]\d{2})|(?^:[+]?0*655[0-2]\d)|(?^:[+]?0*6553[0-5]))/, # produced using Number::Range::Regexp
+    examples => [
+        {str=>'1'     , gen_args=>{-anchor=>1}, matches=>1},
+        {str=>'20'    , gen_args=>{-anchor=>1}, matches=>1},
+        {str=>'300'   , gen_args=>{-anchor=>1}, matches=>1},
+        {str=>'4000'  , gen_args=>{-anchor=>1}, matches=>1},
+        {str=>'50000' , gen_args=>{-anchor=>1}, matches=>1},
+        {str=>'65536' , gen_args=>{-anchor=>1}, matches=>0},
+        {str=>'100000', gen_args=>{-anchor=>1}, matches=>0},
+    ],
+};
+
 1;
 # ABSTRACT: Regexp patterns related to network
 
