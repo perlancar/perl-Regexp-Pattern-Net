@@ -10,7 +10,7 @@ use warnings;
 our %RE;
 
 $RE{ipv4} = {
-    summary => 'Match a JSON number literal',
+    summary => 'Match an IPv4 address',
     pat => qr/(?:(?:25[0-5]|2[0-4][0-9]|[0-1]?[0-9]{1,2})[.](?:25[0-5]|2[0-4][0-9]|[0-1]?[0-9]{1,2})[.](?:25[0-5]|2[0-4][0-9]|[0-1]?[0-9]{1,2})[.](?:25[0-5]|2[0-4][0-9]|[0-1]?[0-9]{1,2}))/, # from Regexp::Common {net}{IPv4}
     examples => [
         {str=>'1.2.3.4', matches=>1},
